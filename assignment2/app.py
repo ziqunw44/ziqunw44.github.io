@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 CORS(app)
 
-API_KEY = "CTeXHu1GQm1clkX3nrITDxgaQ0Xnj1Yv"
+API_KEY = "quzYLHBpJAWrXTLeqUjosmQnwlexkJ2N"
 API_KEY_geo = "AIzaSyB4HMWd-aafN2qWg1fm9PK9AlFGtmPHsiQ"
 
 @app.route('/')
@@ -41,6 +41,8 @@ def submit():
         lng = geo_data['results'][0]['geometry']['location']['lng']
 
     try:
+        print(locationHeader)
+        print(lat,lng)
         url = f"https://api.tomorrow.io/v4/timelines?location={lat},{lng}&fields=temperature,humidity,windSpeed,pressureSeaLevel,visibility,cloudCover,uvIndex,weatherCode&units=imperial&timesteps=current&timezone=America/Los_Angeles&apikey={API_KEY}"
         seven_url = f"https://api.tomorrow.io/v4/timelines?location={lat},{lng}&fields=temperature,humidity,windSpeed,pressureSeaLevel,visibility,cloudCover,uvIndex,weatherCode,temperatureMax,temperatureMin,precipitationProbability,precipitationType,sunriseTime,sunsetTime&units=imperial&timesteps=1d&timezone=America/Los_Angeles&apikey={API_KEY}"
         hourly_url = f"https://api.tomorrow.io/v4/timelines?location={lat},{lng}&fields=windDirection,temperature,humidity,windSpeed,pressureSeaLevel,temperatureMax,temperatureMin&units=imperial&timesteps=1h&timezone=America/Los_Angeles&apikey={API_KEY}"

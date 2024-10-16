@@ -1,0 +1,13 @@
+runtime: python311
+
+handlers:
+  - url: /.*
+    script: auto
+
+env: standard
+
+entrypoint: python3.11 app.py
+
+env_variables:
+  FLASK_ENV: development
+  OTHER_VARIABLE: value 

@@ -1,0 +1,319 @@
+body
+{
+    background-color: rgb(213, 210, 210);
+} 
+
+#searchForm 
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(213, 210, 210);
+}
+
+.searchFormHeader
+{
+    background-image: url('../Images/banner.jpg');
+    width: 500px;
+    padding: 20px;
+}
+
+.searchFormHeader h
+{
+    font-weight: bolder;
+    font-size: 20px;
+}
+
+.searchFormBody
+{
+    width: 540px;
+    background-color: white;
+}
+
+.searchFormLayer1
+{
+    margin-left: 20px;
+    margin-bottom: 30px;
+    margin-top: 20px;
+}
+
+input,select {
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+.searchFormLayer1 input
+{
+    width: 480px;
+}
+
+.searchFormLayer2
+{
+    margin-left: 20px;
+    display: flex;
+    gap: 40px;
+}
+
+.searchFormLayer2 input,select
+{
+    width: 220px;
+}
+
+
+label
+{
+    display: block;
+    color: rgb(72, 72, 210);
+    margin-bottom: 10px;
+}
+
+.required
+{
+    color: red;
+}
+
+hr
+{
+    height: 1px;
+    border: none;
+    background-color: blue;
+    margin-top: 20px;
+    width: 500px;
+}
+
+.autoDetect
+{
+    margin-top: 10px;
+    color: rgb(72, 72, 210);
+    margin-bottom: 20px;
+    margin-left: 20px;
+}
+
+button
+{
+    padding: 10px 20px;
+    font-size: 15px;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 30px;
+}
+
+.submit
+{
+    background-color: rgba(22, 22, 189, 0.604);
+    box-shadow: 2px 2px 2px rgba(2, 2, 51, 0.604);
+    margin-left: 20px;
+}
+
+.submit:hover
+{
+    background-color: rgba(22, 22, 189, 0.5);
+    box-shadow: 2px 2px 2px rgba(2, 2, 51, 0.277);
+}
+
+.clear
+{
+    background-color: rgb(255, 200, 0);
+    box-shadow: 2px 2px 2px orange;
+}
+
+.clear:hover
+{
+    background-color: rgb(255, 250, 0);
+    box-shadow: 2px 2px 2px rgb(147, 97, 4);
+}
+
+.imageCore
+{
+    width: 30px;
+    height: 30px;
+}
+
+.weatherCore
+{
+    color: gray;
+}
+
+.weatherInfomation
+{
+    display: flex;
+    justify-content: space-between;
+}
+
+.locationHeader
+{
+    color: gray;
+    font-size: 20px;
+}
+
+.currentWeatherCard
+{
+    width: 650px;
+    margin-top: 30px;
+    background-color: white;
+}
+
+.sevenDayCard {
+    width: 1000px;
+    margin-top: 40px;
+    margin-left: 80px;
+}
+
+.sevenDayCard table {
+    width: 100%;
+    border-collapse: collapse;
+    border-collapse: separate;
+    border-spacing: 0 10px;
+}
+
+.sevenDayCard th, .sevenDayCard td {
+    padding: 10px 45px;
+    text-align: center;
+    background-color: white;
+}
+
+.sevenDayCard th {
+    background-color: #3b5998;
+    color: white;
+}
+
+.sevenDayCard td img {
+    width: 30px;
+    height: 30px;
+}
+
+.sevenDayCard tbody tr
+{
+    cursor: pointer;
+}
+
+.layerOne
+{
+    display: flex;
+}
+
+.detailImageCore 
+{
+    width: 150px;
+    height: 150px;
+    position: relative;
+    top : 50px;
+    right : -60px;
+
+}
+
+.detailCard
+{
+    width: 540px;
+    background: linear-gradient(to bottom, white,rgba(0, 4, 42, 0.831));
+}
+
+.layerOne
+{
+    font-size: 30px;
+    padding: 10px 20px;
+    color: rgba(15, 6, 47, 0.831);
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+.layerTwo
+{
+    display: table;
+    margin-bottom: 30px;
+    font-size: 20px;
+    color: white;
+    margin-left: 140px;
+    margin-bottom: 30px;
+}
+
+.layerTwo p
+{
+    display: table-row;
+}
+
+.layerTwo span
+{
+    display: table-cell;
+    text-align: right;
+    padding-right: 10px;
+    padding-bottom: 10px;
+}
+
+.core
+{
+    display: table-cell;
+}
+
+.description,.weatherChartHeader {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.weatherChartHeader
+{
+    margin-top: 30px;
+}
+
+
+.highcharts-figure,
+.highcharts-data-table table {
+    min-width: 310px;
+    max-width: 800px;
+    margin: 1em auto;
+}
+
+#container,#container2 {
+    height: 400px;
+}
+
+.highcharts-data-table table {
+    font-family: Verdana, sans-serif;
+    border-collapse: collapse;
+    border: 1px solid #ebebeb;
+    margin: 10px auto;
+    text-align: center;
+    width: 100%;
+    max-width: 500px;
+}
+
+.highcharts-data-table caption {
+    padding: 1em 0;
+    font-size: 1.2em;
+    color: #555;
+}
+
+.highcharts-data-table th {
+    font-weight: 600;
+    padding: 0.5em;
+}
+
+.highcharts-data-table td,
+.highcharts-data-table th,
+.highcharts-data-table caption {
+    padding: 0.5em;
+}
+
+.highcharts-data-table thead tr,
+.highcharts-data-table tr:nth-child(even) {
+    background: #f8f8f8;
+}
+
+.highcharts-data-table tr:hover {
+    background: #f1f7ff;
+}
+
+
+#container2 {
+    max-width: 800px;
+    min-width: 380px;
+    height: 310px;
+    margin: 0 auto;
+}
+
+#loading {
+    margin-top: 100px;
+    text-align: center;
+}

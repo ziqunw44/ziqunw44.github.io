@@ -287,7 +287,7 @@ function showCurrentWeather(valuesCurrent,locationHeader)
     const currentWeatherText = weatherCodes[valuesCurrent.weatherCode];
     const currentWeatherImage = weatherImages[valuesCurrent.weatherCode];
     const Image = document.createElement('img');
-    Image.src = `./Images/Weather Symbols for Weather Codes/${currentWeatherImage}`;
+    Image.src = `../static/Images/Weather Symbols for Weather Codes/${currentWeatherImage}`;
     Image.style.width = '100px';
     Image.style.height = '100px';
 
@@ -326,32 +326,32 @@ function showCurrentWeather(valuesCurrent,locationHeader)
     weatherInfomation.innerHTML = `
             <div class = "weatherCore">
                 <p>Humidity</p>
-                <img class = "imageCore" src="./Images/humidity.png">
+                <img class = "imageCore" src="../static/Images/humidity.png">
                 <p>${data.humidity}%</p>
             </div>
             <div class = "weatherCore">
                 <p>Pressure</p>
-                <img class = "imageCore" src="./Images/pressure.png">
+                <img class = "imageCore" src="../static/Images/Pressure.png">
                 <p>${data.pressure}inHg</p>
             </div>
             <div class = "weatherCore">
                 <p>Wind Speed</p>
-                <img class = "imageCore" src="./Images/wind_Speed.png">
+                <img class = "imageCore" src="../static/Images/Wind_Speed.png">
                 <p>${data.windSpeed}mph</p>
             </div>
             <div class = "weatherCore">
                 <p>Visibility</p>
-                <img class = "imageCore" src="./Images/visibility.png">
+                <img class = "imageCore" src="../static/Images/Visibility.png">
                 <p>${data.visibility}mi</p>
             </div>
             <div class = "weatherCore">
                 <p>Cloud Cover</p>
-                <img class = "imageCore" src="./Images/cloud_Cover.png">
+                <img class = "imageCore" src="../static/Images/Cloud_Cover.png">
                 <p>${data.cloudCover}%</p>
             </div>
             <div class = "weatherCore">
                 <p>UV Level</p>
-                <img class = "imageCore" src="./Images/uv_level.png">
+                <img class = "imageCore" src="../static/Images/UV_Level.png">
                 <p>${data.uvLevel}</p>
             </div>
             <style>
@@ -412,7 +412,7 @@ function showSevenDayWeather(valuesSeven,valuesHourly)
         const statusImg = weatherImages[weatherCode];
         statusData.innerHTML = `
             <div style='display: inline-flex; align-items: center;'>
-                <img src='./Images/Weather Symbols for Weather Codes/${statusImg}'>
+                <img src='../static/Images/Weather Symbols for Weather Codes/${statusImg}'>
                 <div style="margin-left: 10px;">${statusText}</div>
             </div>
         `;
@@ -474,7 +474,7 @@ function showDetailCard(day,valuesHourly,valuesSeven)
                 <p>${tempHigh}°F/${tempLow}°F</p>
             </div>
             <div class = "partTwo">
-                <img class = "detailImageCore" src='./Images/Weather Symbols for Weather Codes/${img}'>
+                <img class = "detailImageCore" src='../static/Images/Weather Symbols for Weather Codes/${img}'>
             </div>
         </div>
         <div class = "layerTwo">
@@ -507,7 +507,7 @@ function showWeatherChartsHeader(valuesHourly,valuesSeven)
         <hr class = 'detailhr' style = 'background-color: white;'>
     `;
     const img = document.createElement('img');
-    img.src = './Images/point-down-512.png';
+    img.src = '../static/Images/point-down-512.png';
     img.style.width = '30px';
     img.style.height = '30px';
     img.onclick = function() {
@@ -532,9 +532,9 @@ function showWeatherCharts(valuesHourly,valuesSeven)
 `
     const weatherChartHeader = document.getElementsByClassName("weatherChartHeader")[0];
     const img = weatherChartHeader.getElementsByTagName('img')[0];
-    img.src = './Images/point-up-512.png';
+    img.src = '../static/Images/point-up-512.png';
     img.onclick = function() {
-        img.src = './Images/point-down-512.png';
+        img.src = '../static/Images/point-down-512.png';
         img.style.width = '30px';
         img.style.height = '30px';
         img.onclick = function() {

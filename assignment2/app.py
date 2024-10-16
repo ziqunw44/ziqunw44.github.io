@@ -6,12 +6,13 @@ app = Flask(__name__)
 
 CORS(app)
 
-API_KEY = "PTFr9EbAZrQHyO1NbPTDlY9L87PeSrzq"
+API_KEY = "CTeXHu1GQm1clkX3nrITDxgaQ0Xnj1Yv"
 API_KEY_geo = "AIzaSyB4HMWd-aafN2qWg1fm9PK9AlFGtmPHsiQ"
 
 @app.route('/')
-def hello_world():
-    return 'hello,world'
+def index():
+    return app.send_static_file('sdnakai.html')
+    
 
 @app.route('/submit', methods=['GET'])
 def submit():
@@ -22,7 +23,6 @@ def submit():
         city = request.args.get('city')
         state = request.args.get('state')
         locationHeader = f"{city}, {state}"
-        
     else:
         street = request.args.get('street')
         city = request.args.get('city')

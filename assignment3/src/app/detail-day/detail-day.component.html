@@ -1,0 +1,86 @@
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDyuWqbJt4NZFVeD0trfeO8jNRqpUPwli4"></script>
+<script async src="https://platform.twitter.com/widgets.js"></script>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+<div *ngIf="showChart">
+    <div class="container">
+        <div class="tab-content" id="weatherTabContent">
+                <h3 class="text-center">Weather Details</h3>
+                <div class="icon-container" (click)="goToMeteogram()">
+                    <span class="material-icons large-icon">chevron_left</span>
+                    <span class="icon-text">List</span>
+                </div>
+                <a class="twitter-share-button"
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://twitter.com/intent/tweet?text=The%20temperature%20in%20{{res_sevenDay.locationDetails.city}},%20{{res_sevenDay.locationDetails.state}}%20on%20{{date}}%20is%20{{res_day.temperature}}°F.%20The%20weather%20conditions%20are%20{{res_day.status}}.%20#CSCI571WeatherSearch">
+                Tweet
+             </a>             
+                <div class="list-group list-group-flush">
+                    <div class="list-group-item border-0 border-bottom ">
+                        <div class="row">
+                            <div class="col-6"> <strong>Status:</strong></div>
+                            <div class="col-6">{{ res_day.status }}</div>
+                        </div>
+                    </div>
+                    <div class="list-group-item">
+                        <div class="row">
+                            <div class="col-6"> <strong>Max Temperature:</strong></div>
+                            <div class="col-6">{{ res_day.tempHigh }}°F</div>
+                        </div>
+                    </div>
+                    <div class="list-group-item">
+                        <div class="row">
+                            <div class="col-6"> <strong>Min Temperature</strong></div>
+                            <div class="col-6">{{ res_day.tempLow }}°F</div>
+                        </div>
+                    </div>
+                    <div class="list-group-item">
+                        <div class="row">
+                            <div class="col-6"> <strong>Apparent Temperature</strong></div>
+                            <div class="col-6">{{ res_day.temperature }}°F</div>
+                        </div>
+                    </div>
+                    <div class="list-group-item">
+                        <div class="row">
+                            <div class="col-6"> <strong>Sun Rise Time</strong></div>
+                            <div class="col-6">{{ res_day.sunrise }}</div>
+                        </div>
+                    </div>
+                    <div class="list-group-item">
+                        <div class="row">
+                            <div class="col-6"> <strong>Sun Set Time</strong></div>
+                            <div class="col-6">{{ res_day.sunset }}</div>
+                        </div>
+                    </div>
+                    <div class="list-group-item">
+                        <div class="row">
+                            <div class="col-6"> <strong>Humidity</strong></div>
+                            <div class="col-6">{{ res_day.humidity }}%</div>
+                        </div>
+                    </div>
+                    <div class="list-group-item">
+                        <div class="row">
+                            <div class="col-6"> <strong>Wind Speed</strong></div>
+                            <div class="col-6">{{ res_day.windSpeed }} mph</div>
+                        </div>
+                    </div>
+                    <div class="list-group-item">
+                        <div class="row">
+                            <div class="col-6"> <strong>Visibility</strong></div>
+                            <div class="col-6">{{ res_day.visibility }} mi</div>
+                        </div>
+                    </div>
+                    <div class="list-group-item">
+                        <div class="row">
+                            <div class="col-6"> <strong>Cloud Cover</strong></div>
+                            <div class="col-6">{{ res_day.cloudcover }}%</div>
+                        </div>
+                    </div>
+                </div>
+    
+    
+        </div>
+        <google-map [center]="center" [zoom]="zoom" width="100%" height="400px"></google-map>
+</div>
+</div>

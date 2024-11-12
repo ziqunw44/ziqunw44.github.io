@@ -1,0 +1,8 @@
+.list-group-item:last-child {
+    border-bottom: none;
+    }
+    
+.card-header {
+    padding: 10px 15px;
+    border-bottom: 1px solid #ddd;
+}

@@ -1,0 +1,17 @@
+.large-icon {
+    font-size: 36px;
+    vertical-align: middle;
+}
+
+.icon-text {
+    font-size: 24px;
+    vertical-align: middle;
+}
+
+.icon-container {
+    display: flex;
+    align-items: center;
+    border: 2px solid #b0b0b0;
+    max-width: 100px;
+    cursor: pointer;
+}

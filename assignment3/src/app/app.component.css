@@ -1,0 +1,20 @@
+.list-group-item:last-child {
+    border-bottom: none;
+    }
+    
+.card-header {
+    padding: 10px 15px;
+}
+
+.special {
+    background-color: white;
+    color: rgba(20, 73, 181, 0.746);
+    border: none;
+}
+
+.active-btn {
+    color: white;
+    background-color: rgba(20, 73, 181, 0.746);
+    border: none;
+}
+

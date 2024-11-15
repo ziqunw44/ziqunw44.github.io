@@ -10,17 +10,17 @@
         <div class="card-header">
             <div class="row font-weight-bold" style="font-size: 0.8em">
                 <div class="col-1">#</div>
-                <div class="col-3">City</div>
-                <div class="col-3">State</div>
+                <div class="col-5">City</div>
+                <div class="col-5">State</div>
             </div>
         </div>
         <div class="list-group list-group-flush">
             <div class="list-group-item border-0 border-bottom" *ngFor="let favorite of favorites; let i = index">
                 <div class="row align-items-center">
                     <div class="col-1"><strong>{{i+1}}</strong></div>
-                    <div class="col-3"(click)="submitLocation(favorite.city,favorite.state)" >{{favorite.city}}</div>
-                    <div class="col-3" (click)="submitLocation(favorite.city,favorite.state)">{{favorite.state}}</div>
-                    <div class="col-3">
+                    <div class="col-5 favorite-link fs-7"(click)="submitLocation(favorite.city,favorite.state)" >{{favorite.city}}</div>
+                    <div class="col-5 favorite-link fs-7" (click)="submitLocation(favorite.city,favorite.state)">{{favorite.state}}</div>
+                    <div class="col-1">
                         <span class="material-icons" (click)="deleteFavorite(favorite.city,favorite.state)">
                             delete_sweep
                         </span>

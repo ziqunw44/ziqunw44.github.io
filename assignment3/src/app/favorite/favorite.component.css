@@ -6,3 +6,9 @@
     padding: 10px 15px;
     border-bottom: 1px solid #ddd;
 }
+
+.favorite-link {
+    color: blue; 
+    text-decoration: underline;
+    cursor: pointer;
+  }

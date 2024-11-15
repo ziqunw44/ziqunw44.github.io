@@ -9,9 +9,18 @@
 }
 
 .icon-container {
-    display: flex;
-    align-items: center;
     border: 2px solid #b0b0b0;
-    max-width: 100px;
     cursor: pointer;
+    padding: 0px 20px 0px 0px;
+}
+.icon-container:hover {
+    background-color: #e0e0e0;
+  }
+
+.list-group-item:nth-child(even) {
+background-color: #f0f0f0;
+}
+
+.list-group-item:nth-child(odd) {
+background-color: #ffffff;
 }

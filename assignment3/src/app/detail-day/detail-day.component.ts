@@ -18,18 +18,6 @@ export class DetailDayComponent {
   date: any;
   center: google.maps.LatLngLiteral = { lat: 0, lng: 0 };;
   zoom: number=12;
-  weatherData = {
-    status: 'Clear',
-    maxTemp: 57.76,
-    minTemp: 41.68,
-    apparentTemp: 57.76,
-    sunRise: '4 AM',
-    sunSet: '3 PM',
-    humidity: 73,
-    windSpeed: 13,
-    visibility: 9.94,
-    cloudCover: 100,
-  };
   ngOnInit(): void 
   {
     this.res_sevenDay = history.state.json;
@@ -47,4 +35,13 @@ export class DetailDayComponent {
     this.showChart = false;
     this.router.navigate(['/table'], { state: { json: this.res_sevenDay, res_day:this.res_day} });
   } 
+  formatData(format: string):string
+  {
+    const date = new Date(format);
+    return date.toLocaleTimeString('en-US', {
+      hour: 'numeric',
+      minute: '2-digit',
+      hour12: true,
+    });
+  }
 }

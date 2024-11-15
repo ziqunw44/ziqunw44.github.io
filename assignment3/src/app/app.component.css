@@ -18,3 +18,14 @@
     border: none;
 }
 
+
+@media (max-width: 500px) {
+    .text-center {
+      font-size: 14px;
+    }
+    
+    .form-check-label {
+        font-size: 14px;
+    }
+}
+

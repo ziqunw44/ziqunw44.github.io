@@ -10,6 +10,7 @@ import more from 'highcharts/highcharts-more';
 more(Highcharts);
 import highchartsWindbarb from 'highcharts/modules/windbarb';
 highchartsWindbarb(Highcharts);
+
 interface daily {
     date: string;
     tempHigh: number;
@@ -86,38 +87,31 @@ weatherCodes = {
   "8000": "Thunderstorm"
 };
 weatherImages = {
-"1000": "clear_day.svg",
-"1100": "mostly_clear_day.svg",
-"1101": "partly_cloudy_day.svg",
-"1102": "mostly_cloudy.svg",
-"1001": "cloudy.svg",
-"2000": "fog.svg",
-"2100": "fog_light.svg",
-"4000": "drizzle.svg",
-"4001": "rain.svg",
-"4200": "rain_light.svg",
-"4201": "rain_heavy.svg",
-"5000": "snow.svg",
-"5001": "flurries.svg",
-"5100": "snow_light.svg",
-"5101": "snow_heavy.svg",
-"6000": "freezing_drizzle.svg",
-"6001": "freezing_rain.svg",
-"6200": "freezing_rain_light.svg",
-"6201": "freezing_rain_heavy.svg",
-"7000": "ice_pellets.svg",
-"7101": "ice_pellets_heavy.svg",
-"7102": "ice_pellets_light.svg",
-"8000": "tstorm.svg"
+"1000": "/assets/clear_day.svg",
+"1100": "/assets/mostly_clear_day.svg",
+"1101": "/assets/partly_cloudy_day.svg",
+"1102": "/assets/mostly_cloudy.svg",
+"1001": "/assets/cloudy.svg",
+"2000": "/assets/fog.svg",
+"2100": "/assets/fog_light.svg",
+"4000": "/assets/drizzle.svg",
+"4001": "/assets/rain.svg",
+"4200": "/assets/rain_light.svg",
+"4201": "/assets/rain_heavy.svg",
+"5000": "/assets/snow.svg",
+"5001": "/assets/flurries.svg",
+"5100": "/assets/snow_light.svg",
+"5101": "/assets/snow_heavy.svg",
+"6000": "/assets/freezing_drizzle.svg",
+"6001": "/assets/freezing_rain.svg",
+"6200": "/assets/freezing_rain_light.svg",
+"6201": "/assets/freezing_rain_heavy.svg",
+"7000": "/assets/ice_pellets.svg",
+"7101": "/assets/ice_pellets_heavy.svg",
+"7102": "/assets/ice_pellets_light.svg",
+"8000": "/assets/tstorm.svg"
 };
-//   ngOnInit(): void {
-//     console.log(this.json);
-//     if (this.json && this.container) {
-//       this.parseYrData();
-//     } else {
-//       console.error('Missing json data or container ID');
-//     }
-//   }
+
   dictionary :{ [key: string]: { symbol: string; text: string } }= {
     clearsky: {
         symbol: '01',
@@ -386,8 +380,24 @@ createTempChart()
                     [1, '#add8e6']
                 ]
             }
-        }]     
-    
+        }],
+        responsive: {
+            rules: [
+                {
+                    condition: {
+                        maxWidth: 768 
+                    },
+                    chartOptions: {
+                        chart: {
+                            height: 300,
+                        },
+                        legend: {
+                            enabled: false 
+                        }
+                    }
+                }
+            ]
+        }  
     };
     Highcharts.chart('chart', this.chartOptions);
   }
@@ -421,8 +431,8 @@ createTempChart()
       },
 
       title: {
-          text: 'Meteogram for London, England',
-          align: 'left',
+          text: 'Hourly Weather(for next five days)',
+          align: 'center',
           style: {
               whiteSpace: 'nowrap',
               textOverflow: 'ellipsis'
@@ -446,7 +456,28 @@ createTempChart()
               '<b>{point.point.symbolName}</b><br>'
 
       },
-
+      responsive: {
+        rules: [
+            {
+                condition: {
+                    maxWidth: 768 
+                },
+                chartOptions: {
+                    chart: {
+                        height: 300,
+                        width:500
+                    },
+                    plotOptions: {
+                        column: {
+                            pointPadding: 0.25,
+                            groupPadding: 0.2,
+                            maxPointWidth: 15
+                        }
+                    }
+                }
+            }
+        ]
+    }  ,
       xAxis: [{ // Bottom X axis
           type: 'datetime',
           tickInterval: 2 * 36e5, // two hours
@@ -624,7 +655,6 @@ createTempChart()
           name: 'Wind',
           type: 'windbarb',
           id: 'windbarbs',
-          // color: Highcharts.getOptions().colors[1],
           lineWidth: 1.5,
           data: this.winds,
           vectorLength: 18,
@@ -660,12 +690,15 @@ parseYrData():void {
         x,
         y: node.data.instant.details.humidity
     }); 
+        if(i%2==0)
+        {
+            this.winds.push({
+                x,
+                value: node.data.instant.details.wind_speed,
+                direction: node.data.instant.details.wind_from_direction
+            });
+        }
 
-      this.winds.push({
-          x,
-          value: node.data.instant.details.wind_speed,
-          direction: node.data.instant.details.wind_from_direction
-      });
 
       this.pressures.push({
           x,
@@ -673,15 +706,12 @@ parseYrData():void {
       })
   });
 
-  // Create the chart when the data is loaded
   this.createChart();
 };
 goToDetailDay(day:any) {
-    // this.showTable = false;
     this.router.navigate(['/detail'], { state: { json: this.res_sevenDay,json_day:day } });
   } 
   goToDetailDay_() {
-    // this.showTable = false;
     this.router.navigate(['/detail'], { state: { json: this.res_sevenDay,json_day:this.res_day } });
   } 
 
@@ -729,4 +759,7 @@ addFavorite()
       );   
     this.isStarred = true; 
 }
+prepareRoute(outlet: RouterOutlet) {
+    return outlet?.activatedRouteData?.['animation'];
+  }
 }

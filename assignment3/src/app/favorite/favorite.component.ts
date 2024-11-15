@@ -59,8 +59,8 @@ deleteFavorite(city:string,state:string)
 
 submitLocation(city:string,state:string)
 {
-    const data = {street: '', city: city, state: state, currentLocation: false}
-    this.apiservice.mock(data).subscribe(
+    const data = {street: '', city: city, state: state, currentLocation: false,location:''}
+    this.apiservice.submit(data).subscribe(
     
       (response)=>{
         this.res_sevenDay = response;

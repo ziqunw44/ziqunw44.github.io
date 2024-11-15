@@ -1,14 +1,17 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
-
+      <div class="container mt-4">
+        <h3 class="text-center header mb-4">Forecast at {{ locationHeader }}</h3>
+    </div>
 <div *ngIf="showTable && res_sevenDay">
-    <div style="margin-left: 85%;margin-top:50px">
+    <div class="d-flex justify-content-end align-items-center my-3">
         <span class="material-icons" (click) = "addFavorite()" >{{ isStarred ? 'star' : 'star_border' }}</span>
         <span class="button-text" (click) = "goToDetailDay_()" style="margin-left: 10px;margin-right:10px">Details</span>
         <span class="material-icons">chevron_right</span>
     </div>
     <div class="container">
-        <ul class="nav nav-tabs" id="myTab" role="tablist">
+        
+        <ul class="nav nav-tabs justify-content-end" id="myTab" role="tablist">
             <li class="nav-item" role="presentation">
                 <button class="nav-link active" id="dayview-tab" data-bs-toggle="tab" data-bs-target="#dayview-tab-pane" type="button" (click)="showChart = false;" role="tab"  aria-controls="dayview-tab-pane" aria-selected="true">Day view</button>
             </li>
@@ -22,9 +25,8 @@
             </ul>
             <div class="tab-content" id="myTabContent">
                 <div class="tab-pane fade show active" id="dayview-tab-pane" role="tabpanel" aria-labelledby="dayview-tab" tabindex="0">
-                    <h3 class="text-center">Forecast at {{locationHeader}}</h3>
                     <div class="card-header">
-                        <div class="row font-weight-bold" style="font-size: 0.8em">
+                        <div class="row font-weight-bold" style="font-size: 0.7em">
                             <div class="col-1">#</div>
                             <div class="col-3">Date</div>
                             <div class="col-2">Status</div>
@@ -35,11 +37,11 @@
                     </div>
                     <div class="list-group list-group-flush">
                         <div class="list-group-item border-0 border-bottom" *ngFor="let day of sevenDay; let i = index">
-                            <div class="row align-items-center">
+                            <div class="row align-items-center data_">
                                 <div class="col-1"><strong>{{i+1}}</strong></div>
-                                <div class="col-3" (click) = "goToDetailDay(day)">{{day.date}}</div>
+                                <div class="col-3 date-link" (click) = "goToDetailDay(day)">{{day.date}}</div>
                                 <div class="col-2">
-                                    <img [src]="'Images/Weather Symbols for Weather Codes/'+day.img" width="30" height="30"/>{{day.status}}
+                                    {{day.status}}<img [src]="day.img"/>
                                 </div>
                                 <div class="col-2">{{day.tempHigh}}</div>
                                 <div class="col-2">{{day.tempLow}}</div>
@@ -55,4 +57,4 @@
   </div>
 
 
-<router-outlet />
+<router-outlet/>

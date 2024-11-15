@@ -6,30 +6,19 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ApiService {
-
-  private locationUrl = 'http://localhost:3000/api/submit';
-  private mockUrl = 'http://localhost:3000/api/mock';
-  private mockmeteUrl = 'http://localhost:3000/api/mockmete';
-  private isFavoriteUrl = 'http://localhost:3000/api/isFavorite';
-  private addFavoriteUrl = 'http://localhost:3000/api/addFavorite';
-  private deleteFavoriteUrl = 'http://localhost:3000/api/deleteFavorite';
-  private getFavoriteUrl = 'http://localhost:3000/api/getFavorite';
+  private locationUrl = '/api/submit';
+  private isFavoriteUrl = '/api/isFavorite';
+  private addFavoriteUrl = '/api/addFavorite';
+  private deleteFavoriteUrl = '/api/deleteFavorite';
+  private getFavoriteUrl = '/api/getFavorite';
   constructor( private http:HttpClient) {}
 
 
-  submit(data:{street: string; city: string; state: string;currentLocation:boolean;}): Observable<any>
+  submit(data:{street: string; city: string; state: string;currentLocation:boolean;location:string}): Observable<any>
   {
-    const params = new HttpParams().set('street',data.street).set('city',data.city).set('state',data.state).set('autoDetect',data.currentLocation);
+    console.log(this.locationUrl);
+    const params = new HttpParams().set('street',data.street).set('city',data.city).set('state',data.state).set('autoDetect',data.currentLocation).set('location',data.location);
     return this.http.get<any>(this.locationUrl,{params});
-  }
-  mock(data:{street: string; city: string; state: string;currentLocation:boolean;}): Observable<any>
-  {
-    const params = new HttpParams().set('street',data.street).set('city',data.city).set('state',data.state).set('autoDetect',data.currentLocation);
-    return this.http.get<any>(this.mockUrl,{params});
-  }
-  getMockWeatherData(): Observable<any> {
-    const params = new HttpParams();
-    return this.http.get<any>(this.mockmeteUrl,{});
   }
   isFavorite(data:{city:string,state:string}): Observable<any>
   {

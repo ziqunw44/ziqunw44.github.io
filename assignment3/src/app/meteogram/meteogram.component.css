@@ -56,3 +56,30 @@
 .highcharts-description {
     margin: 0.3rem 10px;
 }
+
+.date-link {
+    color: blue; 
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  .col-2 img {
+    width: 20px;
+    height: 20px;
+  }
+  @media (max-width: 500px) {
+    .nav-item {
+      font-size: 13px;
+    }
+    .header
+    {
+        font-size: 16px;
+    }
+    .data_
+    {
+        font-size: 11px;
+    }
+    .col-2 img {
+        width: 12px;
+        height: 12px;
+      }
+}

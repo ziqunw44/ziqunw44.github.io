@@ -1,0 +1,33 @@
+runtime: nodejs18
+
+instance_class: F1
+
+env_variables:
+  NODE_ENV: 'production'
+  API_KEY: 'quzYLHBpJAWrXTLeqUjosmQnwlexkJ2N'
+  API_KEY_geo: 'AIzaSyB4HMWd-aafN2qWg1fm9PK9AlFGtmPHsiQ'
+  MONGO_URI: 'mongodb+srv://ziqunw44:wangz44@cluster.lsx0e.mongodb.net/HW#?retryWrites=true&w=majority&appName=Cluster'
+
+handlers:
+
+  - url: /api/.*
+    script: auto
+
+  - url: /(.*\.js)
+    static_files: dist/assignment3/browser/\1
+    upload: dist/assignment3/browser/.*\.js
+    mime_type: application/javascript
+
+  - url: /assets/(.*)
+    static_files: dist/assignment3/browser/\1
+    upload: dist/assignment3/browser/.*\.(png|jpg|jpeg|gif|ico|svg)
+
+  - url: /(.*\.css)
+    static_files: dist/assignment3/browser/\1
+    upload: dist/assignment3/browser/.*\.css
+    mime_type: text/css
+
+  - url: /.*
+    static_files: dist/assignment3/browser/index.html
+    upload: dist/assignment3/browser/index.html
+

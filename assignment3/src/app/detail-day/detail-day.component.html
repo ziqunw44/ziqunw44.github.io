@@ -5,17 +5,19 @@
 <div *ngIf="showChart">
     <div class="container">
         <div class="tab-content" id="weatherTabContent">
-                <h3 class="text-center">Weather Details</h3>
-                <div class="icon-container" (click)="goToMeteogram()">
-                    <span class="material-icons large-icon">chevron_left</span>
-                    <span class="icon-text">List</span>
+            <div class="d-flex justify-content-between align-items-center mb-3 mt-4">
+                <div class="icon-container d-flex align-items-center" (click)="goToMeteogram()" style="cursor: pointer;">
+                  <span class="material-icons me-2">chevron_left</span>
+                  <span class="icon-text fs-5">List</span>
                 </div>
+                <h3 class="text-center fs-5">{{ date }}</h3>
                 <a class="twitter-share-button"
-                target="_blank"
-                rel="noopener noreferrer"
-                href="https://twitter.com/intent/tweet?text=The%20temperature%20in%20{{res_sevenDay.locationDetails.city}},%20{{res_sevenDay.locationDetails.state}}%20on%20{{date}}%20is%20{{res_day.temperature}}°F.%20The%20weather%20conditions%20are%20{{res_day.status}}.%20#CSCI571WeatherSearch">
-                Tweet
-             </a>             
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   href="https://twitter.com/intent/tweet?text=The%20temperature%20in%20{{res_sevenDay.locationDetails.city}},%20{{res_sevenDay.locationDetails.state}}%20on%20{{date}}%20is%20{{res_day.temperature}}°F.%20The%20weather%20conditions%20are%20{{res_day.status}}.%20#CSCI571WeatherSearch">
+                  <img src="/assets/twitter-x.svg" alt="Twitter" style="width: 20px; height: 20px; margin-right: 5px;">
+                </a>
+            </div>          
                 <div class="list-group list-group-flush">
                     <div class="list-group-item border-0 border-bottom ">
                         <div class="row">
@@ -44,13 +46,13 @@
                     <div class="list-group-item">
                         <div class="row">
                             <div class="col-6"> <strong>Sun Rise Time</strong></div>
-                            <div class="col-6">{{ res_day.sunrise }}</div>
+                            <div class="col-6">{{ formatData(res_day.sunrise) }}</div>
                         </div>
                     </div>
                     <div class="list-group-item">
                         <div class="row">
                             <div class="col-6"> <strong>Sun Set Time</strong></div>
-                            <div class="col-6">{{ res_day.sunset }}</div>
+                            <div class="col-6">{{ formatData(res_day.sunset) }}</div>
                         </div>
                     </div>
                     <div class="list-group-item">
